@@ -16,7 +16,7 @@
             android:title="Nearby Pubs and clubs" />
         <item
             android:id="@+id/nav_uni_twitter"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_public_black_24dp"
             android:title="University News" />
     </group>
 
