@@ -53,13 +53,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_revision_notes) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_uni_buidlings_locations) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_pubs_clubs) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_uni_twitter) {
 
         } else if (id == R.id.nav_share) {
 
