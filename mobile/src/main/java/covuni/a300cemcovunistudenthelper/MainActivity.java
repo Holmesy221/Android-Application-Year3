@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_pubs_clubs) {
 
         } else if (id == R.id.nav_uni_twitter) {
+            fragment = new TimeLineFragment();
 
         } else if (id == R.id.nav_share) {
 
