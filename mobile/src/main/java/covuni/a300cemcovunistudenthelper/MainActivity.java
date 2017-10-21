@@ -62,7 +62,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_uni_twitter) {
             fragment = new TimeLineFragment();
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_about) {
+            fragment = new AboutFragment();
 
         } else if (id == R.id.nav_send) {
 

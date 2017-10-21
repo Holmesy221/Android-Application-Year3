@@ -1,6 +1,5 @@
 package covuni.a300cemcovunistudenthelper;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -21,7 +20,7 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 
 public class TimeLineFragment extends ListFragment {
 
-    Context mContext;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
