@@ -9,4 +9,7 @@
     <string name="about_pubs_clubs"> - Local Pubs/Clubs Locations</string>
     <string name="about_rev_notes"> - Store Your Revision Notes with Images!</string>
     <string name="about_news"> - Keep up to date with CU news!</string>
+    <string name="about_query">For any queries feel free to email me at:</string>
+    <string name="about_email">at_holmes1@hotmail.co.uk</string>
+    <string name="about_version">App Version: 1.0.0</string>
 </resources>
