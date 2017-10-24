@@ -3,4 +3,10 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="about_text">Welcome to the Coventry University Student helper!</string>
+    <string name="about_body">Here you will find useful information such as:</string>
+    <string name="about_uni"> - University Building Locations</string>
+    <string name="about_pubs_clubs"> - Local Pubs/Clubs Locations</string>
+    <string name="about_rev_notes"> - Store Your Revision Notes with Images!</string>
+    <string name="about_news"> - Keep up to date with CU news!</string>
 </resources>
