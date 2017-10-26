@@ -19,8 +19,10 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
  */
 
 public class TimeLineFragment extends ListFragment {
+    //Put together by using official Fabric Doc. HERE: https://dev.twitter.com/twitterkit/android/show-timelines
 
 
+    //TODO: Change to recycler view.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
