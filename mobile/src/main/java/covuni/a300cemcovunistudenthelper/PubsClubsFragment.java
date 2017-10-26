@@ -63,8 +63,9 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
         MapsInitializer.initialize(getContext());
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng covCity = new LatLng(52.4083001, -1.512276);
+
+        mMap.addMarker(new MarkerOptions().position(covCity).title("Coventry City Center"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(covCity, 15));
     }
 }
