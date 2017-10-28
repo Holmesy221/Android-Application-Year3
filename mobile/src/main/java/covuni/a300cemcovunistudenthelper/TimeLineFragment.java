@@ -1,5 +1,6 @@
 package covuni.a300cemcovunistudenthelper;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -45,5 +46,10 @@ public class TimeLineFragment extends ListFragment {
                 .build();
         setListAdapter(adapter);
         return view;
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
     }
 }

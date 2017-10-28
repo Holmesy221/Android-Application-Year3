@@ -6,9 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -45,6 +45,8 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
     }
 }
 
+
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -59,7 +61,7 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        MapsInitializer.initialize(getContext());
+
 
         // Add a marker in Sydney and move the camera
         LatLng covCity = new LatLng(52.4083001, -1.512276);
@@ -73,14 +75,14 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
         LatLng ivyHouse = new LatLng(52.406723, -1.505650);
         LatLng phoenix = new LatLng(52.406661, -1.503966);
         LatLng quidsInn = new LatLng(52.406624, -1.503203);
-        LatLng kasbah = new LatLng(5.412904, -1.503281);
+        LatLng kasbah = new LatLng(52.412904, -1.503281);
         LatLng townWallTavern = new LatLng(52.409748, -1.515141);
         LatLng artisianBarGrill = new LatLng(52.409846, -1.516681);
         LatLng townCrier = new LatLng(52.407932, -1.515839);
         LatLng oakInn = new LatLng(52.406613, -1.503428);
 
 
-
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(covCity, 15));
         mMap.addMarker(new MarkerOptions().position(covCity).title("Coventry City Center"));
         mMap.addMarker(new MarkerOptions().position(cosmos).title("Cosmos Bar and Restaurant"));
         mMap.addMarker(new MarkerOptions().position(slugLettuce).title("Slug and Lettuce Bar and Restaurant"));
@@ -98,5 +100,6 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
         mMap.addMarker(new MarkerOptions().position(artisianBarGrill).title("The Artisian Bar and Grill"));
         mMap.addMarker(new MarkerOptions().position(townCrier).title("The Town Crier"));
         mMap.addMarker(new MarkerOptions().position(oakInn).title("The Oak Inn"));
+
     }
 }
