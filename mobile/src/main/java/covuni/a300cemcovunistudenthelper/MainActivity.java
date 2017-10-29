@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_uni_buidlings_locations) {
             fragment = new UniBuildingsFragment();
 
+
         } else if (id == R.id.nav_pubs_clubs) {
             fragment = new PubsClubsFragment();
 
