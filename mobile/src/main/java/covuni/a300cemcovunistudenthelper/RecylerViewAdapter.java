@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.ViewHolder>{
 
+    // For my adapter I used https://developer.android.com/training/material/lists-cards.html
+
     private String[] mName;
     private int[] mImage;
 

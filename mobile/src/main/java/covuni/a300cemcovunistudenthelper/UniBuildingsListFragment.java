@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,16 +22,19 @@ import static covuni.a300cemcovunistudenthelper.BuildingList.buildings;
 
 public class UniBuildingsListFragment extends Fragment {
 
+    // To help me display the cardView I used this https://www.safaribooksonline.com/library/view/head-first-android/9781491974049/ch13.html
+    //https://developer.android.com/training/material/lists-cards.html
+
     private RecyclerView mRecyclerView;
     private RecylerViewAdapter mAdapter;
-
+private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // View view = inflater.inflate(R.layout.fragment_uni_buildings_list, container, false);
         setHasOptionsMenu(true);
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_uni_buildings_list, container, false);
+        mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_uni_buildings_list, container, false);
 
         String[] buildingNames = new String[buildings.length];
         for (int i = 0;
@@ -45,16 +49,20 @@ public class UniBuildingsListFragment extends Fragment {
         }
 
 
-
+        //GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
+        //recyclerView.setLayoutManager(layoutManager);
         setHasOptionsMenu(true);
+        mLayoutManager = new GridLayoutManager(getActivity(),2);
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
-       RecylerViewAdapter adapter  = new RecylerViewAdapter(buildingNames, buildingImages);
-        recyclerView.setAdapter(adapter);
-      //  mRecyclerView.setHasFixedSize(true);
-        //GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+       //RecylerViewAdapter adapter  = new RecylerViewAdapter(buildingNames, buildingImages);
+       // recyclerView.setAdapter(adapter);
+        mAdapter = new RecylerViewAdapter(buildingNames,buildingImages);
+        mRecyclerView.setAdapter(mAdapter);
+       // mRecyclerView.setHasFixedSize(true);
 
 
-    return recyclerView;
+    return mRecyclerView;
 
 
     }
