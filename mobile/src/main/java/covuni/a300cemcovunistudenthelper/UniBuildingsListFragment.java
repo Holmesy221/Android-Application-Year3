@@ -1,5 +1,6 @@
 package covuni.a300cemcovunistudenthelper;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -29,6 +30,7 @@ public class UniBuildingsListFragment extends Fragment {
     private RecylerViewAdapter mAdapter;
 private RecyclerView.LayoutManager mLayoutManager;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,28 +51,28 @@ private RecyclerView.LayoutManager mLayoutManager;
         }
 
 
-        //GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
-        //recyclerView.setLayoutManager(layoutManager);
+
         setHasOptionsMenu(true);
         mLayoutManager = new GridLayoutManager(getActivity(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-       //RecylerViewAdapter adapter  = new RecylerViewAdapter(buildingNames, buildingImages);
-       // recyclerView.setAdapter(adapter);
         mAdapter = new RecylerViewAdapter(buildingNames,buildingImages);
         mRecyclerView.setAdapter(mAdapter);
        // mRecyclerView.setHasFixedSize(true);
+        mAdapter.setListener(new RecylerViewAdapter.Listener() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getActivity(), UniBuildingListDetailsActivity.class);
+                intent.putExtra(UniBuildingListDetailsActivity.UNI_BUILDING_DETAILS,position);
+                getActivity().startActivity(intent);
+            }
+        });
 
 
     return mRecyclerView;
 
 
     }
-
-
-
-
-
 
 
 

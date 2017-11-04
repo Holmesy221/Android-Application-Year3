@@ -44,6 +44,11 @@
 
         </activity>
 
+        <activity android:name=".UniBuildingListDetailsActivity"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+
         <activity
             android:name=".PubsClubsActivity"
             android:configChanges="orientation"

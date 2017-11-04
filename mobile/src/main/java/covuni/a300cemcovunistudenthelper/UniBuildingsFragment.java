@@ -93,7 +93,7 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
 
-    //TODO: Populate with local pubs and clubs
+
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
