@@ -52,6 +52,7 @@ private RecyclerView.LayoutManager mLayoutManager;
 
 
 
+
         setHasOptionsMenu(true);
         mLayoutManager = new GridLayoutManager(getActivity(),2);
         mRecyclerView.setLayoutManager(mLayoutManager);
