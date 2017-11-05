@@ -26,9 +26,9 @@ public class UniBuildingsListFragment extends Fragment {
     // To help me display the cardView I used this https://www.safaribooksonline.com/library/view/head-first-android/9781491974049/ch13.html
     //https://developer.android.com/training/material/lists-cards.html
 
-    private RecyclerView mRecyclerView;
-    private RecylerViewAdapter mAdapter;
-private RecyclerView.LayoutManager mLayoutManager;
+     RecyclerView mRecyclerView;
+     RecylerViewAdapter mAdapter;
+     RecyclerView.LayoutManager mLayoutManager;
 
 
     @Override

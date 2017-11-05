@@ -21,11 +21,7 @@
             android:icon="@drawable/ic_cu_logo"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -45,7 +41,7 @@
         </activity>
 
         <activity android:name=".UniBuildingListDetailsActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".UniBuildingsListActivity">
 
         </activity>
 
@@ -53,6 +49,19 @@
             android:name=".PubsClubsActivity"
             android:configChanges="orientation"
             android:label="@string/title_activity_pubs_clubs"></activity>
+
+        <activity
+            android:name=".StartUpScreen"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
     </application>
 
 </manifest>
