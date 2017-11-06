@@ -2,7 +2,12 @@ package covuni.a300cemcovunistudenthelper;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -25,16 +30,46 @@ public class PubsClubsFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         mView = inflater.inflate(R.layout.activity_pubs_clubs, container, false);
         return mView;
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+        super.onCreateOptionsMenu(menu, menuInflater);
+        menuInflater.inflate(R.menu.menu, menu);
+    }
 
-@Override
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.uni_info:
+                Fragment newFragment = new PubsClubsListFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction()
+                        .replace(R.id.frame_container, newFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+
+
+        }
+
+
+    }
+
+
+    @Override
 public void onViewCreated(View view,  Bundle savedInstanceState){
     super.onViewCreated(view, savedInstanceState);
     mMapView = (MapView) mView.findViewById(R.id.map);
@@ -95,7 +130,6 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
         mMap.addMarker(new MarkerOptions().position(phoenix).title("Phoenix Bar"));
         mMap.addMarker(new MarkerOptions().position(quidsInn).title("Quidds inn Bar"));
         mMap.addMarker(new MarkerOptions().position(kasbah).title("Kasbah NighClub"));
-        mMap.addMarker(new MarkerOptions().position(ivyHouse).title("Ivy House"));
         mMap.addMarker(new MarkerOptions().position(townWallTavern).title("Town Wall Tavern"));
         mMap.addMarker(new MarkerOptions().position(artisianBarGrill).title("The Artisian Bar and Grill"));
         mMap.addMarker(new MarkerOptions().position(townCrier).title("The Town Crier"));

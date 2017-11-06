@@ -50,6 +50,9 @@
             android:configChanges="orientation"
             android:label="@string/title_activity_pubs_clubs"></activity>
 
+        <activity android:name=".PubsClubsBuildingsListDetailActivity"
+            android:parentActivityName=".MainActivity"/>
+
         <activity
             android:name=".StartUpScreen"
             android:theme="@style/SplashTheme">
