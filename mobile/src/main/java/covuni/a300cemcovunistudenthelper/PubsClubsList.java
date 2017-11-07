@@ -11,7 +11,7 @@ public class PubsClubsList {
     int image;
 
     public static final PubsClubsList[] pubBuildings = {
-            new PubsClubsList("Cosmos", R.drawable.alan_berry),
+            new PubsClubsList("Cosmos", R.drawable.cosmos),
             new PubsClubsList("Slug and Lettuce",R.drawable.alan_berry),
             new PubsClubsList("Flying Standard", R.drawable.alan_berry),
             new PubsClubsList("Nandos",R.drawable.alan_berry),

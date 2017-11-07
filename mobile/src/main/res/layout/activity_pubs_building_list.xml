@@ -9,7 +9,9 @@
     <ImageView
         android:id="@+id/pub_buildings_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:scaleType="fitXY"/>
     <TextView
         android:id="@+id/pub_building_name"
         android:layout_gravity="center"
