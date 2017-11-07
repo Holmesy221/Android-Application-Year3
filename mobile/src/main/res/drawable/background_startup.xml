@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:drawable="@color/tw__composer_deep_gray"/>
+        android:drawable="@color/cardview_dark_background"/>
 
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/ic_cu_logo"/>
     </item>
 
 </layer-list>
