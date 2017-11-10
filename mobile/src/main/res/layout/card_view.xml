@@ -10,7 +10,8 @@ android:layout_width="match_parent"
 android:layout_height="200dp"
     card_view:cardElevation="3dp"
     android:layout_margin="5dp"
-card_view:cardCornerRadius="4dp">
+card_view:cardCornerRadius="4dp"
+    card_view:cardBackgroundColor="@color/cardview_dark_background">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -28,6 +29,7 @@ card_view:cardCornerRadius="4dp">
 
 <TextView
     android:id="@+id/info_text"
+    android:textColor="@color/tw__composer_white"
     android:layout_marginLeft="4dp"
     android:layout_width="match_parent"
     android:textAlignment="center"

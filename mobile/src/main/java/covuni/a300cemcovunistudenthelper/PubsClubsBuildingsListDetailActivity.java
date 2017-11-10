@@ -24,6 +24,15 @@ public class PubsClubsBuildingsListDetailActivity extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.pub_building_name);
         textView.setText(pubName);
 
+        String pubBody = PubsClubsList.pubBuildings[pubId].getBody();
+        TextView textView1 = (TextView)findViewById(R.id.pub_building_body);
+        textView1.setText(pubBody);
+
+        String pubAddress = PubsClubsList.pubBuildings[pubId].getAddress();
+        TextView textView2 = (TextView)findViewById(R.id.pub_building_address);
+        textView2.setText(pubAddress);
+
+
 
         int pubImage = PubsClubsList.pubBuildings[pubId].getImage();
         ImageView imageView = (ImageView)findViewById(R.id.pub_buildings_image);

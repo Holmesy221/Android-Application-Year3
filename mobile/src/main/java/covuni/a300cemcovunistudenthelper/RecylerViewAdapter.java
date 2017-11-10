@@ -65,6 +65,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
         TextView textView = (TextView)cardView.findViewById(R.id.info_text);
         textView.setText(mName[position]);
 
+
         cardView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -74,6 +75,8 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
             }
         });
     }
+
+
 
 
 @Override

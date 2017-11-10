@@ -23,9 +23,11 @@ public class UniBuildingListDetailsActivity extends AppCompatActivity {
         String uniName = BuildingList.buildings[uniId].getName();
         TextView textView = (TextView)findViewById(R.id.uni_buildings_name);
         textView.setText(uniName);
+
         String uniBody = BuildingList.buildings[uniId].getBody();
         TextView textView1 = (TextView)findViewById(R.id.uni_buildings_body);
         textView1.setText(uniBody);
+
         String uniAddress = BuildingList.buildings[uniId].getAddress();
         TextView textView2 = (TextView)findViewById(R.id.address);
         textView2.setText(uniAddress);
