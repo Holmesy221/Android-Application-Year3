@@ -23,6 +23,8 @@ import static covuni.a300cemcovunistudenthelper.BuildingList.buildings;
 
 public class UniBuildingsListFragment extends Fragment {
 
+    public UniBuildingsListFragment(){}
+
     // To help me display the cardView I used this https://www.safaribooksonline.com/library/view/head-first-android/9781491974049/ch13.html
     //https://developer.android.com/training/material/lists-cards.html
 

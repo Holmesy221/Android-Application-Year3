@@ -8,7 +8,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/ic_cu_logo"/>
+            android:src="@drawable/uni_buildings_image"/>
     </item>
 
 </layer-list>

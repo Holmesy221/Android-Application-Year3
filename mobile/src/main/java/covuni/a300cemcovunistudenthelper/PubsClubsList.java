@@ -10,7 +10,7 @@ public class PubsClubsList {
     String body;
     int image;
 
-    public static final PubsClubsList[] pubBuildings = {
+    public static final  PubsClubsList[] pubBuildings = {
             new PubsClubsList("Cosmos", R.drawable.cosmos,"Stylish, modern chain dining room with Pan-Asian cooking stations and global banquet options.", "36-42 Corporation St, Coventry CV1 1GF"),
             new PubsClubsList("Slug and Lettuce",R.drawable.slug_lettuce,"Smart bar chain with a cocktail list, a menu of global classics, and uncluttered contemporary decor.","The Old County Hall, Bayley Ln, Coventry CV1 5RN"),
             new PubsClubsList("Flying Standard", R.drawable.the_flying_standard,"Large chain pub known for its beer selection offering a British menu and a calm atmosphere","2-10 Trinity St, Coventry CV1 1FL"),
@@ -29,7 +29,7 @@ public class PubsClubsList {
 
     };
 
-    PubsClubsList(String name, int image,String body, String address ){
+   public PubsClubsList(String name, int image,String body, String address ){
         this.image = image;
         this.name = name;
         this.body = body;

@@ -22,7 +22,7 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 public class TimeLineFragment extends ListFragment {
     //Put together by using official Fabric Doc. HERE: https://dev.twitter.com/twitterkit/android/show-timelines
     //and https://dev.twitter.com/twitterkit/android/installation
-
+public  TimeLineFragment(){}
 
     //TODO: Change to recycler view.
     @Override

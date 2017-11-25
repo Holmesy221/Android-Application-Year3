@@ -21,6 +21,7 @@ import static covuni.a300cemcovunistudenthelper.PubsClubsList.pubBuildings;
  */
 
 public class PubsClubsListFragment extends Fragment {
+public PubsClubsListFragment(){}
 
     RecyclerView mRecyclerView;
     RecylerViewAdapter mAdapter;
