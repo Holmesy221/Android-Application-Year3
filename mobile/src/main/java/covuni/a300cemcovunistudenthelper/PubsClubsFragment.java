@@ -21,7 +21,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class PubsClubsFragment extends Fragment implements OnMapReadyCallback {
 
 
-    // Followed TUT from https://www.youtube.com/watch?v=0dToEEuPL9Y for a part of it.
 
     private GoogleMap mMap;
     MapView mMapView;
@@ -68,7 +67,7 @@ public class PubsClubsFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
-
+//https://www.youtube.com/watch?v=0dToEEuPL9Y for this part
     @Override
 public void onViewCreated(View view,  Bundle savedInstanceState){
     super.onViewCreated(view, savedInstanceState);
@@ -82,17 +81,8 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
 
 
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
+   // Method to add the markers, with a title. Use Lat/Long to find the positions.
 
-    //TODO: Populate with local pubs and clubs
 
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
