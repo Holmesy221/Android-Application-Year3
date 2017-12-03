@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.nav_revision_notes) {
+            fragment = new fragment_posts();
 
         } else if (id == R.id.nav_uni_buidlings_locations) {
             fragment = new UniBuildingsFragment();

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "929020472332",
+    "firebase_url": "https://third-essence-183213.firebaseio.com",
+    "project_id": "third-essence-183213",
+    "storage_bucket": "third-essence-183213.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:929020472332:android:4073eb2c25d9f18e",
+        "android_client_info": {
+          "package_name": "covuni.a300cemcovunistudenthelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "929020472332-8o1dmbuo40s9omi84dujobd0lcbget6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "covuni.a300cemcovunistudenthelper",
+            "certificate_hash": "ec5ed437bbe4940a36dfe0d429c777f989f7cc5e"
+          }
+        },
+        {
+          "client_id": "929020472332-0hlb14od9lkcnubp700qr57qagd755vl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4vI-WjlElrXx3rVlnsccsh4CwS7fck0c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "929020472332-0hlb14od9lkcnubp700qr57qagd755vl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

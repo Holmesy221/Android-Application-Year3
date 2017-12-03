@@ -4,6 +4,8 @@ package covuni.a300cemcovunistudenthelper;
  * Created by Holmesy on 29/10/2017.
  */
 
+
+
 public class BuildingList {
 
     String name;
