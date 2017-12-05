@@ -1,6 +1,7 @@
 package covuni.a300cemcovunistudenthelper;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -9,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -68,7 +68,7 @@ private static final String REQUIRED = "Required";
                     String id = mDatabaseReference.push().getKey();
                     Post post = new Post(id, posts);
                     mDatabaseReference.child(id).setValue(post);
-                    Toast.makeText(getActivity(), " Post added", Toast.LENGTH_LONG).show();
+                    Snackbar.make(v, "Post added!", Snackbar.LENGTH_LONG).show();
                 } else {
                     mEditText.setError(REQUIRED);
 
