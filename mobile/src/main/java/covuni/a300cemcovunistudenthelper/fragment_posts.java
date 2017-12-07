@@ -35,11 +35,11 @@ public class fragment_posts extends Fragment {
 
     public fragment_posts(){}
 
-    View mView;
-    EditText mEditText;
-    Button mPost;
-    DatabaseReference mDatabaseReference;
-    ListView mListView;
+    View view;
+    EditText editText;
+    Button button;
+    DatabaseReference databaseReference;
+    ListView listView;
     List<Post> posts;
     ListViewAdapter mListViewAdapter;
 
@@ -50,33 +50,33 @@ private static final String REQUIRED = "Required";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.activity_posts, container, false);
-        mEditText = (EditText) mView.findViewById(R.id.edit_post);
-        mPost = (Button) mView.findViewById(R.id.button_post);
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference();
-        mListView = (ListView) mView.findViewById(R.id.postListview);
+        view = inflater.inflate(R.layout.activity_posts, container, false);
+        editText = (EditText) view.findViewById(R.id.edit_post);
+        button = (Button) view.findViewById(R.id.button_post);
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        listView = (ListView) view.findViewById(R.id.postListview);
         posts = new ArrayList<>();
 
 
 
         // inserting into the DB.
-        mPost.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String posts = mEditText.getText().toString().trim();
+                String posts = editText.getText().toString().trim();
                 if (!TextUtils.isEmpty(posts)) {
-                    String id = mDatabaseReference.push().getKey();
+                    String id = databaseReference.push().getKey();
                     Post post = new Post(id, posts);
-                    mDatabaseReference.child(id).setValue(post);
+                    databaseReference.child(id).setValue(post);
                     Snackbar.make(v, "Post added!", Snackbar.LENGTH_LONG).show();
                 } else {
-                    mEditText.setError(REQUIRED);
+                    editText.setError(REQUIRED);
 
 
                 }
             }
         });
-        return mView;
+        return view;
     }
 
 
@@ -84,7 +84,7 @@ private static final String REQUIRED = "Required";
         public  void onStart(){
             super.onStart();
 
-            mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 posts.clear();
@@ -96,7 +96,7 @@ private static final String REQUIRED = "Required";
                 }
 
                ListViewAdapter adapter = new ListViewAdapter(getActivity(), posts);
-                mListView.setAdapter(adapter);
+                listView.setAdapter(adapter);
 
             }
             @Override

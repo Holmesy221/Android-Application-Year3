@@ -16,6 +16,7 @@
     android:id="@+id/edit_post"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:textColor="@color/tw__composer_white"
     android:hint="Enter a post"/>
     <Button
         android:layout_below="@+id/edit_post"

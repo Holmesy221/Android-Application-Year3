@@ -17,9 +17,12 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
 
     // For my adapter I used https://developer.android.com/training/material/lists-cards.html
 
-    private String[] mName;
-    private int[] mImage;
+    private String[] name;
+    private int[] image;
     private Listener listener;
+    ImageView imageView;
+    TextView textView;
+    Drawable drawable;
 
     interface Listener{
         void onClick(int position);
@@ -27,11 +30,11 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        CardView mCardView;
+        CardView cardView;
 
         public ViewHolder(CardView view){
             super(view);
-            mCardView = view;
+            cardView = view;
         }
 
     }
@@ -41,8 +44,8 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
     }
 
     public RecylerViewAdapter(String[] name, int[] image){
-        mName = name;
-        mImage = image;
+        this.name = name;
+        this.image = image;
     }
 
     @Override
@@ -56,14 +59,14 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position){
-        CardView cardView = holder.mCardView;
-        ImageView imageView = (ImageView)cardView.findViewById(R.id.image);
-        Drawable drawable = ContextCompat.getDrawable(cardView.getContext(),mImage[position]);
+        CardView cardView = holder.cardView;
+        imageView = (ImageView)cardView.findViewById(R.id.image);
+        drawable = ContextCompat.getDrawable(cardView.getContext(), image[position]);
         imageView.setImageDrawable(drawable);
-        imageView.setContentDescription(mName[position]);
+        imageView.setContentDescription(name[position]);
 
-        TextView textView = (TextView)cardView.findViewById(R.id.info_text);
-        textView.setText(mName[position]);
+        textView = (TextView)cardView.findViewById(R.id.info_text);
+        textView.setText(name[position]);
 
 
         cardView.setOnClickListener(new View.OnClickListener(){
@@ -81,7 +84,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
 
 @Override
     public int getItemCount(){
-        return mName.length;
+        return name.length;
 }
 
 

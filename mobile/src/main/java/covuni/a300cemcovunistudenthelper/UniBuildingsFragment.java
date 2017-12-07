@@ -1,6 +1,8 @@
 package covuni.a300cemcovunistudenthelper;
 
+import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -18,40 +22,72 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
 /**
  * Created by Holmesy on 28/10/2017.
  */
 
 public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback {
 
+    public static int REQUEST_LOCATION = 1;
 
-    // Followed TUT from https://www.youtube.com/watch?v=0dToEEuPL9Y for a part of it.
 
-    private GoogleMap mMap;
-    MapView mMapView;
-    View mView;
+
+    private GoogleMap googleMap;
+    MapView mapView;
+    View view;
+    private Location location;
+    private GoogleApiClient client;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.activity_pubs_clubs, container, false);
-        return mView;
+        view = inflater.inflate(R.layout.activity_pubs_clubs, container, false);
+        return view;
     }
+
+
+
+
+
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        client = new GoogleApiClient.Builder(getActivity())
+                .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
+                    @Override
+                    public void onConnected(@Nullable Bundle connectionHint) {
+                        getActivity().invalidateOptionsMenu();
+
+
+                    }
+
+                    @Override
+                    public void onConnectionSuspended(int i) {
+
+                    }
+                })
+                .addApi(LocationServices.API)
+                .build();
+
+
     }
+
+
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mMapView = (MapView) mView.findViewById(R.id.map);
-        if (mMapView != null) {
-            mMapView.onCreate(null);
-            mMapView.onResume();
-            mMapView.getMapAsync(this);
+        mapView = (MapView) this.view.findViewById(R.id.map);
+        if (mapView != null) {
+            mapView.onCreate(null);
+            mapView.onResume();
+            mapView.getMapAsync(this);
         }
     }
 
@@ -59,6 +95,8 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
         super.onCreateOptionsMenu(menu, menuInflater);
         menuInflater.inflate(R.menu.menu, menu);
+        MenuItem searchItem = menu.findItem(R.id.location);
+        searchItem.setEnabled(client.isConnected());
     }
 
     @Override
@@ -94,8 +132,10 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
      */
 
 
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+    public void onMapReady(GoogleMap Map) {
+        this.googleMap = Map;
+
+
 
         LatLng theHub = new LatLng(52.407525, -1.504663);
         LatLng ecBuilding = new LatLng(52.405305, -1.500118);
@@ -125,30 +165,30 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
 
 
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(theHub, 15));
-        mMap.addMarker(new MarkerOptions().position(theHub).title("The Hub"));
-        mMap.addMarker(new MarkerOptions().position(ecBuilding).title("Engineering and Computing"));
-        mMap.addMarker(new MarkerOptions().position(library).title("The Library"));
-        mMap.addMarker(new MarkerOptions().position(studentCenter).title("The Student Center"));
-        mMap.addMarker(new MarkerOptions().position(Alma).title("Alma"));
-        mMap.addMarker(new MarkerOptions().position(ArmstrongSiddely).title("Armstrong Siddely"));
-        mMap.addMarker(new MarkerOptions().position(Buggati).title("Buggati"));
-        mMap.addMarker(new MarkerOptions().position(charlesWard).title("Charles Ward"));
-        mMap.addMarker(new MarkerOptions().position(ellenTerry).title("Ellen Terry"));
-        mMap.addMarker(new MarkerOptions().position(allenBerry).title("Allen Berry"));
-        mMap.addMarker(new MarkerOptions().position(georgeEliot).title("George Eliot"));
-        mMap.addMarker(new MarkerOptions().position(grahamSutherland).title("Graham Sutherland"));
-        mMap.addMarker(new MarkerOptions().position(jaguar).title("Jaguar"));
-        mMap.addMarker(new MarkerOptions().position(jamesStarley).title("James Starley"));
-        mMap.addMarker(new MarkerOptions().position(mauriceFoss).title("Maurice Foss"));
-        mMap.addMarker(new MarkerOptions().position(multiStoryCarPark).title("MultiStory car park"));
-        mMap.addMarker(new MarkerOptions().position(prioryBuilding).title("Priory Building"));
-        mMap.addMarker(new MarkerOptions().position(richardCrossman).title("Richard Crossman"));
-        mMap.addMarker(new MarkerOptions().position(sirJohnLaing).title("Sir John Laing"));
-        mMap.addMarker(new MarkerOptions().position(sirWilliamLyons).title("Sir William Morris"));
-        mMap.addMarker(new MarkerOptions().position(whiteFrairs).title("Whitefrairs"));
-        mMap.addMarker(new MarkerOptions().position(williamMorris).title("William Morris"));
-        mMap.addMarker(new MarkerOptions().position(sportsCenter).title("Sports Center"));
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(theHub, 15));
+        this.googleMap.addMarker(new MarkerOptions().position(theHub).title("The Hub"));
+        this.googleMap.addMarker(new MarkerOptions().position(ecBuilding).title("Engineering and Computing"));
+        this.googleMap.addMarker(new MarkerOptions().position(library).title("The Library"));
+        this.googleMap.addMarker(new MarkerOptions().position(studentCenter).title("The Student Center"));
+        this.googleMap.addMarker(new MarkerOptions().position(Alma).title("Alma"));
+        this.googleMap.addMarker(new MarkerOptions().position(ArmstrongSiddely).title("Armstrong Siddely"));
+        this.googleMap.addMarker(new MarkerOptions().position(Buggati).title("Buggati"));
+        this.googleMap.addMarker(new MarkerOptions().position(charlesWard).title("Charles Ward"));
+        this.googleMap.addMarker(new MarkerOptions().position(ellenTerry).title("Ellen Terry"));
+        this.googleMap.addMarker(new MarkerOptions().position(allenBerry).title("Allen Berry"));
+        this.googleMap.addMarker(new MarkerOptions().position(georgeEliot).title("George Eliot"));
+        this.googleMap.addMarker(new MarkerOptions().position(grahamSutherland).title("Graham Sutherland"));
+        this.googleMap.addMarker(new MarkerOptions().position(jaguar).title("Jaguar"));
+        this.googleMap.addMarker(new MarkerOptions().position(jamesStarley).title("James Starley"));
+        this.googleMap.addMarker(new MarkerOptions().position(mauriceFoss).title("Maurice Foss"));
+        this.googleMap.addMarker(new MarkerOptions().position(multiStoryCarPark).title("MultiStory car park"));
+        this.googleMap.addMarker(new MarkerOptions().position(prioryBuilding).title("Priory Building"));
+        this.googleMap.addMarker(new MarkerOptions().position(richardCrossman).title("Richard Crossman"));
+        this.googleMap.addMarker(new MarkerOptions().position(sirJohnLaing).title("Sir John Laing"));
+        this.googleMap.addMarker(new MarkerOptions().position(sirWilliamLyons).title("Sir William Morris"));
+        this.googleMap.addMarker(new MarkerOptions().position(whiteFrairs).title("Whitefrairs"));
+        this.googleMap.addMarker(new MarkerOptions().position(williamMorris).title("William Morris"));
+        this.googleMap.addMarker(new MarkerOptions().position(sportsCenter).title("Sports Center"));
 
     }
 }

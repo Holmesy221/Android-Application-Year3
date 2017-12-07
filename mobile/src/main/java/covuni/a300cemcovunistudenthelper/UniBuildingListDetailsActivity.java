@@ -12,6 +12,14 @@ import android.widget.TextView;
 
 public class UniBuildingListDetailsActivity extends AppCompatActivity {
 
+    ImageView imageView;
+    TextView textView;
+    String uniName, uniBody, uniAddress;
+    int uniId, uniImage;
+
+
+
+
     public static final String UNI_BUILDING_DETAILS = "uniId";
 
     @Override
@@ -19,21 +27,21 @@ public class UniBuildingListDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uni_building_list);
 
-        int uniId = (Integer)getIntent().getExtras().get(UNI_BUILDING_DETAILS);
-        String uniName = BuildingList.buildings[uniId].getName();
-        TextView textView = (TextView)findViewById(R.id.uni_buildings_name);
+         uniId = (Integer)getIntent().getExtras().get(UNI_BUILDING_DETAILS);
+        uniName = BuildingList.buildings[uniId].getName();
+        textView = (TextView)findViewById(R.id.uni_buildings_name);
         textView.setText(uniName);
 
-        String uniBody = BuildingList.buildings[uniId].getBody();
-        TextView textView1 = (TextView)findViewById(R.id.uni_buildings_body);
-        textView1.setText(uniBody);
+         uniBody = BuildingList.buildings[uniId].getBody();
+        textView = (TextView)findViewById(R.id.uni_buildings_body);
+        textView.setText(uniBody);
 
-        String uniAddress = BuildingList.buildings[uniId].getAddress();
-        TextView textView2 = (TextView)findViewById(R.id.address);
-        textView2.setText(uniAddress);
+         uniAddress = BuildingList.buildings[uniId].getAddress();
+        textView = (TextView)findViewById(R.id.address);
+        textView.setText(uniAddress);
 
-        int uniImage = BuildingList.buildings[uniId].getImage();
-        ImageView imageView = (ImageView)findViewById(R.id.uni_buildings_image);
+         uniImage = BuildingList.buildings[uniId].getImage();
+        imageView = (ImageView)findViewById(R.id.uni_buildings_image);
         imageView.setImageDrawable(ContextCompat.getDrawable(this, uniImage));
         imageView.setContentDescription(uniName);
 

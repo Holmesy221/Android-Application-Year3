@@ -14,28 +14,33 @@ public class PubsClubsBuildingsListDetailActivity extends AppCompatActivity {
 
     public static final String PUB_BUILDING_DETAILS = "pubId";
 
+    TextView textView;
+    ImageView imageView;
+    String pubName, pubBody, pubAddress;
+    int pubImage, pubId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pubs_building_list);
 
-        int pubId = (Integer)getIntent().getExtras().get(PUB_BUILDING_DETAILS);
-        String pubName = PubsClubsList.pubBuildings[pubId].getName();
-        TextView textView = (TextView)findViewById(R.id.pub_building_name);
+        pubId = (Integer)getIntent().getExtras().get(PUB_BUILDING_DETAILS);
+        pubName = PubsClubsList.pubBuildings[pubId].getName();
+        textView = (TextView)findViewById(R.id.pub_building_name);
         textView.setText(pubName);
 
-        String pubBody = PubsClubsList.pubBuildings[pubId].getBody();
-        TextView textView1 = (TextView)findViewById(R.id.pub_building_body);
-        textView1.setText(pubBody);
+        pubBody = PubsClubsList.pubBuildings[pubId].getBody();
+        textView = (TextView)findViewById(R.id.pub_building_body);
+        textView.setText(pubBody);
 
-        String pubAddress = PubsClubsList.pubBuildings[pubId].getAddress();
-        TextView textView2 = (TextView)findViewById(R.id.pub_building_address);
-        textView2.setText(pubAddress);
+        pubAddress = PubsClubsList.pubBuildings[pubId].getAddress();
+        textView = (TextView)findViewById(R.id.pub_building_address);
+        textView.setText(pubAddress);
 
 
 
-        int pubImage = PubsClubsList.pubBuildings[pubId].getImage();
-        ImageView imageView = (ImageView)findViewById(R.id.pub_buildings_image);
+         pubImage = PubsClubsList.pubBuildings[pubId].getImage();
+        imageView = (ImageView)findViewById(R.id.pub_buildings_image);
         imageView.setImageDrawable(ContextCompat.getDrawable(this, pubImage));
         imageView.setContentDescription(pubName);
 

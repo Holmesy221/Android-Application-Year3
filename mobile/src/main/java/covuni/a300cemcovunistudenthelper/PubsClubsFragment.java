@@ -22,16 +22,16 @@ public class PubsClubsFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-    private GoogleMap mMap;
-    MapView mMapView;
-    View mView;
+    private GoogleMap googleMap;
+    MapView mapView;
+    View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        mView = inflater.inflate(R.layout.activity_pubs_clubs, container, false);
-        return mView;
+        view = inflater.inflate(R.layout.activity_pubs_clubs, container, false);
+        return view;
 
     }
 
@@ -71,11 +71,11 @@ public class PubsClubsFragment extends Fragment implements OnMapReadyCallback {
     @Override
 public void onViewCreated(View view,  Bundle savedInstanceState){
     super.onViewCreated(view, savedInstanceState);
-    mMapView = (MapView) mView.findViewById(R.id.map);
-    if (mMapView != null){
-        mMapView.onCreate(null);
-        mMapView.onResume();
-        mMapView.getMapAsync(this);
+    mapView = (MapView) this.view.findViewById(R.id.map);
+    if (mapView != null){
+        mapView.onCreate(null);
+        mapView.onResume();
+        mapView.getMapAsync(this);
     }
 }
 
@@ -85,7 +85,7 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
 
 
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        this.googleMap = googleMap;
 
 
         // Add a marker in Sydney and move the camera
@@ -107,23 +107,23 @@ public void onViewCreated(View view,  Bundle savedInstanceState){
         LatLng oakInn = new LatLng(52.406613, -1.503428);
 
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(covCity, 15));
-        mMap.addMarker(new MarkerOptions().position(covCity).title("Coventry City Center"));
-        mMap.addMarker(new MarkerOptions().position(cosmos).title("Cosmos Bar and Restaurant"));
-        mMap.addMarker(new MarkerOptions().position(slugLettuce).title("Slug and Lettuce Bar and Restaurant"));
-        mMap.addMarker(new MarkerOptions().position(flyingStandard).title("Flying Standard Bar and Restaurant"));
-        mMap.addMarker(new MarkerOptions().position(nandos).title("Nandos Restaurant"));
-        mMap.addMarker(new MarkerOptions().position(hansDyansty).title("Hans Dyansty Restaurant"));
-        mMap.addMarker(new MarkerOptions().position(earlMercia).title("The Earl of Mercia Bar and Restaurant"));
-        mMap.addMarker(new MarkerOptions().position(drapersBar).title("Drapers Bar and Kitchen"));
-        mMap.addMarker(new MarkerOptions().position(ivyHouse).title("Ivy House"));
-        mMap.addMarker(new MarkerOptions().position(phoenix).title("Phoenix Bar"));
-        mMap.addMarker(new MarkerOptions().position(quidsInn).title("Quidds inn Bar"));
-        mMap.addMarker(new MarkerOptions().position(kasbah).title("Kasbah NighClub"));
-        mMap.addMarker(new MarkerOptions().position(townWallTavern).title("Town Wall Tavern"));
-        mMap.addMarker(new MarkerOptions().position(artisianBarGrill).title("The Artisian Bar and Grill"));
-        mMap.addMarker(new MarkerOptions().position(townCrier).title("The Town Crier"));
-        mMap.addMarker(new MarkerOptions().position(oakInn).title("The Oak Inn"));
+        this.googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(covCity, 15));
+        this.googleMap.addMarker(new MarkerOptions().position(covCity).title("Coventry City Center"));
+        this.googleMap.addMarker(new MarkerOptions().position(cosmos).title("Cosmos Bar and Restaurant"));
+        this.googleMap.addMarker(new MarkerOptions().position(slugLettuce).title("Slug and Lettuce Bar and Restaurant"));
+        this.googleMap.addMarker(new MarkerOptions().position(flyingStandard).title("Flying Standard Bar and Restaurant"));
+        this.googleMap.addMarker(new MarkerOptions().position(nandos).title("Nandos Restaurant"));
+        this.googleMap.addMarker(new MarkerOptions().position(hansDyansty).title("Hans Dyansty Restaurant"));
+        this.googleMap.addMarker(new MarkerOptions().position(earlMercia).title("The Earl of Mercia Bar and Restaurant"));
+        this.googleMap.addMarker(new MarkerOptions().position(drapersBar).title("Drapers Bar and Kitchen"));
+        this.googleMap.addMarker(new MarkerOptions().position(ivyHouse).title("Ivy House"));
+        this.googleMap.addMarker(new MarkerOptions().position(phoenix).title("Phoenix Bar"));
+        this.googleMap.addMarker(new MarkerOptions().position(quidsInn).title("Quidds inn Bar"));
+        this.googleMap.addMarker(new MarkerOptions().position(kasbah).title("Kasbah NighClub"));
+        this.googleMap.addMarker(new MarkerOptions().position(townWallTavern).title("Town Wall Tavern"));
+        this.googleMap.addMarker(new MarkerOptions().position(artisianBarGrill).title("The Artisian Bar and Grill"));
+        this.googleMap.addMarker(new MarkerOptions().position(townCrier).title("The Town Crier"));
+        this.googleMap.addMarker(new MarkerOptions().position(oakInn).title("The Oak Inn"));
 
     }
 }

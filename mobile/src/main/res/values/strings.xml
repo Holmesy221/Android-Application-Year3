@@ -13,4 +13,7 @@
     <string name="about_email">at_holmes1@hotmail.co.uk</string>
     <string name="about_version">App Version: 1.0.0</string>
     <string name="title_activity_pubs_clubs">Map</string>
+    <string name="about_fragment">About</string>
+    <string name="resources">Resources</string>
+    <string name="about_me">About Me</string>
 </resources>

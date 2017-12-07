@@ -24,13 +24,13 @@ public class PubsClubsListFragment extends Fragment {
 public PubsClubsListFragment(){}
 
     RecyclerView mRecyclerView;
-    RecylerViewAdapter mAdapter;
-    RecyclerView.LayoutManager mLayoutManager;
+    RecylerViewAdapter recylerViewAdapter;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // View view = inflater.inflate(R.layout.fragment_uni_buildings_list, container, false);
+
         setHasOptionsMenu(true);
         mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_pubs_clubs_list, container, false);
 
@@ -47,13 +47,12 @@ public PubsClubsListFragment(){}
         }
 
         setHasOptionsMenu(true);
-        mLayoutManager = new GridLayoutManager(getActivity(),2);
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        layoutManager = new GridLayoutManager(getActivity(),2);
+        mRecyclerView.setLayoutManager(layoutManager);
 
-        mAdapter = new RecylerViewAdapter(buildingNames,buildingImages);
-        mRecyclerView.setAdapter(mAdapter);
-        // mRecyclerView.setHasFixedSize(true);
-        mAdapter.setListener(new RecylerViewAdapter.Listener() {
+        recylerViewAdapter = new RecylerViewAdapter(buildingNames,buildingImages);
+        mRecyclerView.setAdapter(recylerViewAdapter);
+        recylerViewAdapter.setListener(new RecylerViewAdapter.Listener() {
             @Override
             public void onClick(int position) {
                 Intent intent = new Intent(getActivity(), PubsClubsBuildingsListDetailActivity.class);

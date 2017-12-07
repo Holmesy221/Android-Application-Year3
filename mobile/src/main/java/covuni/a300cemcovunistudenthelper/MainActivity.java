@@ -1,5 +1,6 @@
 package covuni.a300cemcovunistudenthelper;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -83,7 +84,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new TimeLineFragment();
 
         } else if (id == R.id.nav_about) {
-            fragment = new AboutFragment();
+            Intent intent = new Intent(MainActivity.this, AboutSections.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_send) {
 

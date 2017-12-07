@@ -16,8 +16,8 @@ import java.util.List;
 public class ListViewAdapter extends ArrayAdapter<Post> {
     private Activity context;
     List<Post> posts;
-    TextView mTextView;
-    View mView;
+    TextView textView;
+    View view;
 
 
     public ListViewAdapter(Activity context, List<Post> posts) {
@@ -30,15 +30,15 @@ public class ListViewAdapter extends ArrayAdapter<Post> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        mView= inflater.inflate(R.layout.listview_posts, null, true);
+        view = inflater.inflate(R.layout.listview_posts, null, true);
 
-        mTextView = (TextView) mView.findViewById(R.id.listview_textview);
+        textView = (TextView) view.findViewById(R.id.listview_textview);
 
 
         Post post = posts.get(position);
-        mTextView.setText(post.getPost());
+        textView.setText(post.getPost());
 
-        return mView;
+        return view;
     }
 }
 
