@@ -36,13 +36,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity android:name=".LocateMapFragment">
 
-
-
+        </activity>
 
         <activity android:name=".AboutSections"
             android:parentActivityName=".MainActivity">
             </activity>
+        <activity android:name=".LocateMeActivity"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
 
         <activity android:name=".UniBuildingListDetailsActivity">
 

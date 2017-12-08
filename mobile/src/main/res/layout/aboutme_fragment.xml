@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cardview_dark_background">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:textColor="@color/tw__composer_white"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="My name is Lee, 21 years young, born on the 25.01.96. I am currently in my final of year of my Computer Science Degree. I enjoy exploring Android development and Website Developing in my spare time, and have a keen interest in Computer Forensics, I dont know much about that field, but it interests me and will start to look into it. I would like to one day work at GCHQ! ;) Or possibly move to Australia .. one day.. "/>
+
+
+
+
+</LinearLayout>

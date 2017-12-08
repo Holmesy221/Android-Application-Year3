@@ -1,8 +1,6 @@
 package covuni.a300cemcovunistudenthelper;
 
-import android.location.Location;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -13,8 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -36,8 +32,6 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
     private GoogleMap googleMap;
     MapView mapView;
     View view;
-    private Location location;
-    private GoogleApiClient client;
 
 
     @Override
@@ -49,35 +43,11 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
 
 
 
-
-
-
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
-        client = new GoogleApiClient.Builder(getActivity())
-                .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
-                    @Override
-                    public void onConnected(@Nullable Bundle connectionHint) {
-                        getActivity().invalidateOptionsMenu();
-
-
-                    }
-
-                    @Override
-                    public void onConnectionSuspended(int i) {
-
-                    }
-                })
-                .addApi(LocationServices.API)
-                .build();
-
-
     }
-
-
 
 
     @Override
@@ -92,11 +62,9 @@ public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         super.onCreateOptionsMenu(menu, menuInflater);
         menuInflater.inflate(R.menu.menu, menu);
-        MenuItem searchItem = menu.findItem(R.id.location);
-        searchItem.setEnabled(client.isConnected());
     }
 
     @Override

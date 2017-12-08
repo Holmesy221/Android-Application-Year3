@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, AboutSections.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_locateme) {
+            Intent intent = new Intent(MainActivity.this, LocateMeActivity.class);
+            startActivity(intent);
 
         }
 

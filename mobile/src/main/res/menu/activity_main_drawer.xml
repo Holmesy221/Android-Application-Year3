@@ -23,13 +23,15 @@
     <item android:title="Other">
         <menu>
             <item
+                android:id="@+id/nav_locateme"
+                android:icon="@drawable/ic_locateme"
+                android:title="Locate me!" />
+
+            <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/ic_info_black_24dp"
                 android:title="About" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Locate me!" />
+
         </menu>
     </item>
 

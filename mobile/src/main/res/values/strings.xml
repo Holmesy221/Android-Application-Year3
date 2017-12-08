@@ -16,4 +16,6 @@
     <string name="about_fragment">About</string>
     <string name="resources">Resources</string>
     <string name="about_me">About Me</string>
+    <string name="aboutt_app">Thankyou for Using this App. This App was made for my final year project, for Android App Development. Swipe right to see more about me, and the resources I used to build this app!
+    </string>
 </resources>
