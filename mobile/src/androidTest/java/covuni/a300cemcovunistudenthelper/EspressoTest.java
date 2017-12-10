@@ -27,7 +27,7 @@ import static android.support.test.espresso.contrib.DrawerMatchers.isOpen;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
-public class EspressoTest {
+public class EspressoTest{
 
     public static final String Uni_buldings_map = "Uni buildings map";
 
@@ -74,4 +74,23 @@ public class EspressoTest {
 
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_about));
     }
+
+    @Test
+    public void nav_locate_me(){
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_locateme));
+    }
+    @Test
+    public void nav_offline_notes() {
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        onView(withId(R.id.drawer_layout)).check(matches(isOpen()));
+
+        onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.offlineNotes));
+    }
+
+
+
+
 }

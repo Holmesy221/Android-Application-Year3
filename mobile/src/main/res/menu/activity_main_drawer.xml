@@ -5,7 +5,7 @@
         <item
             android:id="@+id/nav_revision_notes"
             android:icon="@drawable/ic_mode_edit_black_24dp"
-            android:title="Revision Notes" />
+            android:title="Student Share" />
         <item
             android:id="@+id/nav_uni_buidlings_locations"
             android:icon="@drawable/ic_school_black_24dp"
@@ -26,6 +26,11 @@
                 android:id="@+id/nav_locateme"
                 android:icon="@drawable/ic_locateme"
                 android:title="Locate me!" />
+
+            <item
+                android:id="@+id/offlineNotes"
+                android:icon="@drawable/ic_notess"
+                android:title="Personal Notes"/>
 
             <item
                 android:id="@+id/nav_about"

@@ -18,4 +18,8 @@
     <string name="about_me">About Me</string>
     <string name="aboutt_app">Thankyou for Using this App. This App was made for my final year project, for Android App Development. Swipe right to see more about me, and the resources I used to build this app!
     </string>
+    <string name="delete">Delete</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Delete_All">Delete All</string>
+    <string name="Save">Save</string>
 </resources>

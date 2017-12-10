@@ -11,9 +11,9 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:allowBackup="true"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -47,6 +47,14 @@
             android:parentActivityName=".MainActivity">
 
         </activity>
+        <activity android:name=".OfflineNotesList"
+            android:parentActivityName=".MainActivity">
+        </activity>
+
+        <activity android:name=".OfflineNotesAdd"
+            android:parentActivityName=".OfflineNotesList">
+
+        </activity>
 
         <activity android:name=".UniBuildingListDetailsActivity">
 
@@ -54,6 +62,7 @@
 
         <activity android:name=".PubsClubsBuildingsListDetailActivity"
             android:parentActivityName=".MainActivity"/>
+
 
         <activity
             android:name=".StartUpScreen"

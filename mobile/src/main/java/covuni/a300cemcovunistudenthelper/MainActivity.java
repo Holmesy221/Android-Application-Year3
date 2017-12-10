@@ -91,8 +91,11 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, LocateMeActivity.class);
             startActivity(intent);
 
-        }
+        }else if (id == R.id.offlineNotes) {
+            Intent intent = new Intent(MainActivity.this, OfflineNotesList.class);
+            startActivity(intent);
 
+        }
 
         if (fragment !=null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

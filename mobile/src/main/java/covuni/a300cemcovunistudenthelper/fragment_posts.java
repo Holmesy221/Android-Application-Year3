@@ -42,6 +42,7 @@ public class fragment_posts extends Fragment {
     ListView listView;
     List<Post> posts;
     ListViewAdapter mListViewAdapter;
+    FirebaseDatabase firebaseDatabase;
 
 
 
@@ -54,6 +55,7 @@ private static final String REQUIRED = "Required";
         editText = (EditText) view.findViewById(R.id.edit_post);
         button = (Button) view.findViewById(R.id.button_post);
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
         listView = (ListView) view.findViewById(R.id.postListview);
         posts = new ArrayList<>();
 
@@ -83,6 +85,7 @@ private static final String REQUIRED = "Required";
         @Override
         public  void onStart(){
             super.onStart();
+
 
             databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
