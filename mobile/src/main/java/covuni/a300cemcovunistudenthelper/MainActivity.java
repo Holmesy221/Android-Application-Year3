@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         }
-
         if (fragment !=null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frame_container,fragment);
