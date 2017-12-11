@@ -21,6 +21,8 @@ public class OfflineNotesAdd extends AppCompatActivity {
 
     private EditText moduleEditText;
     private EditText revNotesEditText;
+    String moduleString, revNoteString;
+    DbHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +39,14 @@ public class OfflineNotesAdd extends AppCompatActivity {
      */
 
     private void insertNote() {
-        String moduleString = moduleEditText.getText().toString().trim();
-        String revNoteString = revNotesEditText.getText().toString().trim();
+         moduleString = moduleEditText.getText().toString().trim();
+         revNoteString = revNotesEditText.getText().toString().trim();
 
         //instantiate the subclass of SQLiteOpenHelper
-        DbHelper mDbHelper = new DbHelper(this);
+        dbHelper = new DbHelper(this);
 
         // Get the database in write mode
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         //create a new map of vaules, where the column names are the keys
 
@@ -66,13 +68,12 @@ public class OfflineNotesAdd extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Save" menu option
+
             case R.id.save:
-                // call the insert method
+
                 insertNote();
-                // Exits
+
                 finish();
                 return true;
 

@@ -37,7 +37,7 @@
         android:text="FireBase DB - https://www.youtube.com/watch?v=jEmq1B1gveMindex=2list=PLk7v1Z2rk4hj6SDHf_YybDeVhUT9MXaj1
  * https://firebase.google.com/docs/database/android/read-and-write#listen_for_value_events -> https://github.com/firebase/quickstart-android"/>
 
-    <TextView
+       <TextView
         android:textColor="@color/tw__composer_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,8 +46,22 @@
         android:text="Display binded data to cardView for the Pubs / Uni Buildings and display each item in one activity:https://www.safaribooksonline.com/library/view/head-first-android/9781491974049/ch13.html
     //https://developer.android.com/training/material/lists-cards.html"/>
 
+        <TextView
+            android:textColor="@color/tw__composer_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textAlignment="center"
+            android:text="For the Twitter timeline I used the Twitter dev doc."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textAlignment="center"
+            android:text="For Database I used the android training, and followed udacity course"/>
 
 
-</LinearLayout>
+    </LinearLayout>
 
 </ScrollView>

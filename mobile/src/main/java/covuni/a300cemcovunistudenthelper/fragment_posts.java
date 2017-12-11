@@ -55,7 +55,7 @@ private static final String REQUIRED = "Required";
         button = (Button) view.findViewById(R.id.button_post);
 
         // to read or write we need an instance of DB reference
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference = FirebaseDatabase.getInstance().getReference("posts");
 
         listView = (ListView) view.findViewById(R.id.postListview);
         //new arraylist to store posts
@@ -72,11 +72,11 @@ private static final String REQUIRED = "Required";
                 if (!TextUtils.isEmpty(posts)) {
 
                     //get a key
-                    String id = databaseReference.push().getKey();
+                    String key = databaseReference.child("posts").push().getKey();
 
-                    Post post = new Post(id, posts);
+                    Post post = new Post(key, posts);
                     //save
-                    databaseReference.child(id).setValue(post);
+                    databaseReference.child(key).setValue(post);
                     Snackbar.make(v, "Post added!", Snackbar.LENGTH_LONG).show();
                 } else {
                     editText.setError(REQUIRED);

@@ -8,9 +8,4 @@
         app:showAsAction="ifRoom">
     </item>
 
-    <item
-        android:id="@+id/location"
-        android:icon="@drawable/ic_location"
-        app:showAsAction="ifRoom"
-        android:title="location"/>
 </menu>

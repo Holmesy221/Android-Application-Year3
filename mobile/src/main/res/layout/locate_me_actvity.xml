@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/tw__composer_deep_gray">
+    android:background="@color/cardview_dark_background">
 
 
 
@@ -85,6 +85,7 @@
 
 
     <Switch
+        android:textColor="@color/tw__composer_white"
         android:showText="false"
         android:text="On/Off"
         android:onClick="onStartClicked"
