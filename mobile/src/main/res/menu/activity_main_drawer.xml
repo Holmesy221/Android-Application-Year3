@@ -27,10 +27,6 @@
                 android:icon="@drawable/ic_locateme"
                 android:title="Locate me!" />
 
-            <item
-                android:id="@+id/snap_me"
-                android:icon="@drawable/ic_location"
-                android:title="Snap me!"/>
 
             <item
                 android:id="@+id/offlineNotes"

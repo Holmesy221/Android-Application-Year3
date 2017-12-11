@@ -34,6 +34,11 @@ public PubsClubsListFragment(){}
         setHasOptionsMenu(true);
         mRecyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_pubs_clubs_list, container, false);
 
+
+        /*
+        Adding the dataset to the two arrays
+         */
+
         String[] buildingNames = new String[pubBuildings.length];
         for (int i = 0;
              i < buildingNames.length; i++) {
@@ -47,11 +52,17 @@ public PubsClubsListFragment(){}
         }
 
         setHasOptionsMenu(true);
+
+        //layout manager to determine the layout - I use GRID - with two columns
         layoutManager = new GridLayoutManager(getActivity(),2);
         mRecyclerView.setLayoutManager(layoutManager);
 
+        //specify the adapter by passing the arrays to it
         recylerViewAdapter = new RecylerViewAdapter(buildingNames,buildingImages);
         mRecyclerView.setAdapter(recylerViewAdapter);
+
+        // implements the onclick listener to click on a selected pub/club to take to new activity
+        //gets the id
         recylerViewAdapter.setListener(new RecylerViewAdapter.Listener() {
             @Override
             public void onClick(int position) {
@@ -65,6 +76,13 @@ public PubsClubsListFragment(){}
         return mRecyclerView;
 
     }
+
+
+
+
+
+
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){

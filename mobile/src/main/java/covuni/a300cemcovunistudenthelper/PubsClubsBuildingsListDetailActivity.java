@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 public class PubsClubsBuildingsListDetailActivity extends AppCompatActivity {
 
+
+
+    //constant to pass id as xtra info in the intent
     public static final String PUB_BUILDING_DETAILS = "pubId";
 
     TextView textView;
@@ -24,6 +27,11 @@ public class PubsClubsBuildingsListDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pubs_building_list);
 
+
+        /*
+        here we use the id to populate the imageviews and textviews
+         */
+        //get the selected pub/club the user choose from the intent
         pubId = (Integer)getIntent().getExtras().get(PUB_BUILDING_DETAILS);
         pubName = PubsClubsList.pubBuildings[pubId].getName();
         textView = (TextView)findViewById(R.id.pub_building_name);
