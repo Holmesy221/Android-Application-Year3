@@ -29,6 +29,8 @@ final MediaPlayer messageDev = MediaPlayer.create(getActivity(), R.raw.message);
             public void onClick(View v) {
                 messageDev.start();
                 Snackbar.make(v, "Message playing", Snackbar.LENGTH_LONG).show();
+
+
             }
         });
 
