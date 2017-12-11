@@ -26,7 +26,7 @@ import java.util.List;
 
 
 /** To help me build the Firebase database I used these following resources:
- * https://www.youtube.com/watch?v=jEmq1B1gveM&index=2&list=PLk7v1Z2rk4hj6SDHf_YybDeVhUT9MXaj1
+ * https://www.youtube.com/watch?v=jEmq1B1gveM&index=2&list=PLk7v1Z2rk4hj6SDHf_YybDeVhUT9MXaj1 > links with Listview adapter for it aswelll
  * https://firebase.google.com/docs/database/android/read-and-write#listen_for_value_events -> https://github.com/firebase/quickstart-android
  */
 
@@ -41,8 +41,7 @@ public class fragment_posts extends Fragment {
     DatabaseReference databaseReference;
     ListView listView;
     List<Post> posts;
-    ListViewAdapter mListViewAdapter;
-    FirebaseDatabase firebaseDatabase;
+
 
 
 
@@ -54,9 +53,12 @@ private static final String REQUIRED = "Required";
         view = inflater.inflate(R.layout.activity_posts, container, false);
         editText = (EditText) view.findViewById(R.id.edit_post);
         button = (Button) view.findViewById(R.id.button_post);
+
+        // to read or write we need an instance of DB reference
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
         listView = (ListView) view.findViewById(R.id.postListview);
+        //new arraylist to store posts
         posts = new ArrayList<>();
 
 
@@ -66,9 +68,14 @@ private static final String REQUIRED = "Required";
             @Override
             public void onClick(View v) {
                 String posts = editText.getText().toString().trim();
+                //check if val is provided
                 if (!TextUtils.isEmpty(posts)) {
+
+                    //get a key
                     String id = databaseReference.push().getKey();
+
                     Post post = new Post(id, posts);
+                    //save
                     databaseReference.child(id).setValue(post);
                     Snackbar.make(v, "Post added!", Snackbar.LENGTH_LONG).show();
                 } else {
@@ -90,14 +97,15 @@ private static final String REQUIRED = "Required";
             databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                posts.clear();
+
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //get post onject and use values to update UI
                     Post post = postSnapshot.getValue(Post.class);
                     posts.add(post);
 
                 }
-
+                // specify an adapter
                ListViewAdapter adapter = new ListViewAdapter(getActivity(), posts);
                 listView.setAdapter(adapter);
 
