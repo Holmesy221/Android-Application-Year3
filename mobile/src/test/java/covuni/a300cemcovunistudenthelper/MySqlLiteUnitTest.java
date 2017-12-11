@@ -3,7 +3,6 @@ package covuni.a300cemcovunistudenthelper;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -47,6 +46,15 @@ public class MySqlLiteUnitTest {
         assertTrue(dbAssignId != -1);
 
 
+    }
+
+
+    @Test
+    public void createDB(){
+        DbHelper dbHelper = new DbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        assertTrue(db.isOpen());
+        db.close();
     }
 
 
