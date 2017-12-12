@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,14 +21,14 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Holmesy on 07/12/2017.
  */
 
+
+//Tutorial Sample code
 public class LocateMeActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     public static int REQUEST_LOCATION = 1;
@@ -37,9 +36,7 @@ public class LocateMeActivity extends AppCompatActivity implements GoogleApiClie
     static private OnCurrentLocationChangeListener onCurrentLocationChangeListener;
     Button button;
     TextView output;
-    protected TextView latitudeText;
-    protected TextView longitudeText;
-    protected TextView timeText;
+
     protected Button locateButton;
     protected GoogleApiClient googleApiClient;
     protected LocationRequest locationRequest;
@@ -59,16 +56,11 @@ public class LocateMeActivity extends AppCompatActivity implements GoogleApiClie
         locateButton = (Button) findViewById(R.id.locateMe);
         button = (Button) findViewById(R.id.locatefrag);
         output = (TextView) findViewById(R.id.output);
-        latitudeText = (TextView) findViewById((R.id.latitude_text));
-        longitudeText = (TextView) findViewById((R.id.longitude_text));
-        timeText = (TextView) findViewById((R.id.time_text));
-        latitudeText.setText("Latitude not available yet");
-        longitudeText.setText("Longitude not available yet");
-        timeText.setText("Time not available yet");
         locateButton.setEnabled(false);
         output.setText("");
         button.setEnabled(false);
 
+        //Here we allow googleApi to connect to remote services, with two interfaces the class implements
 
         googleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -76,6 +68,7 @@ public class LocateMeActivity extends AppCompatActivity implements GoogleApiClie
                 .addApi(LocationServices.API)
                 .build();
 
+        //request location, and how often it updates
         locationRequest = new LocationRequest();
         locationRequest.setInterval(10000);
         locationRequest.setFastestInterval(5000);
@@ -87,24 +80,22 @@ public class LocateMeActivity extends AppCompatActivity implements GoogleApiClie
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
     }
 
+
+//here we check if have permission to access location
+// also for permission for request location
+//lastly specify the adapter for onLocationChanged
     @Override
     public void onConnected(@Nullable Bundle connectionHint) {
-        Log.d("xxxx", "90");
+
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) !=
                 PackageManager.PERMISSION_GRANTED) {
-            Log.d("xxxx", "93");
+
 
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_LOCATION);
         } else {
             location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-            Log.d("xxxx", "99");
 
-            if (location != null) {
-                latitudeText.setText(String.valueOf(location.getLatitude()));
-                longitudeText.setText(String.valueOf(location.getLongitude()));
-                timeText.setText("Last known location");
-            }
             LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
         }
     }
@@ -121,31 +112,34 @@ public class LocateMeActivity extends AppCompatActivity implements GoogleApiClie
         }
     }
 
+    //updates UI if location changed
     @Override
     public void onLocationChanged(Location location) {
         this.location = location;
-        latitudeText.setText(String.valueOf(this.location.getLatitude()));
-        longitudeText.setText(String.valueOf(this.location.getLongitude()));
-        timeText.setText(DateFormat.getTimeInstance().format(new Date()));
         if (onCurrentLocationChangeListener != null) {
             onCurrentLocationChangeListener.onCurrentLocationChange(location);
         }
     }
+
+    //Stop and start the Location services
 
     public void onStartClicked(View v) {
         if (!googleApiClient.isConnected()) {
             googleApiClient.connect();
             locateButton.setEnabled(true);
             button.setEnabled(true);
-            output.setText("GoogleApiClient has started. You can see the location icon in status bar");
+            output.setText("Now Hit the Locate me button to find your location");
         } else {
             googleApiClient.disconnect();
             locateButton.setEnabled(false);
             button.setEnabled(false);
 
-            output.setText("GoogleApiClient has stopped. Location icon in status has gone.");
+            output.setText("You've stopped Locate Me!.");
         }
     }
+
+
+    // Method to display the location converted into a street address using geocoder
     public void onLocateClicked(View v) {
         geocoder = new Geocoder(this);
         try {
@@ -156,7 +150,7 @@ public class LocateMeActivity extends AppCompatActivity implements GoogleApiClie
                 StringBuilder addressLines = new StringBuilder();
                 if (address.getMaxAddressLineIndex() > 0) {
                     for (int i = 0; i < address.getMaxAddressLineIndex(); i++) {
-                        addressLines.append(address.getAddressLine(i) + "\n");
+                        addressLines.append(address.getAddressLine(i) + "\n" );
                     }
                 } else {
                     addressLines.append(address.getAddressLine(0));

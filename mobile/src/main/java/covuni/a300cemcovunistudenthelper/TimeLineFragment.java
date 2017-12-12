@@ -30,7 +30,8 @@ public  TimeLineFragment(){}
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.timeline, container, false);
 
-
+        // builder method
+        //calling the twitter intialise kit
         TwitterConfig config = new TwitterConfig.Builder(this.getActivity())
                 .logger(new DefaultLogger(Log.DEBUG))
                 .twitterAuthConfig(new TwitterAuthConfig("vGNHifQS3nYEy7mYAfTvzJSMq", "RTqZ4RCWAklp0aCaGPegJE6J97oQaWI6fVwXk3FWd8F9Y93QaP"))
@@ -38,9 +39,11 @@ public  TimeLineFragment(){}
                 .build();
         Twitter.initialize(config);
 
+        // USERTIMELINE instance - shows the coventry uni news tweets configure using the builder
         final UserTimeline userTimeline = new UserTimeline.Builder()
                 .screenName("CoventryUniNews")
                 .build();
+        // adapter to build it to listview and provide the time instance
         final TweetTimelineListAdapter adapter = new TweetTimelineListAdapter.Builder(this.getActivity())
                 .setTimeline(userTimeline)
                 .build();

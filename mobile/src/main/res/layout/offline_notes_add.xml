@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context=".OfflineNotesAdd">
 
     <LinearLayout
@@ -15,7 +14,7 @@
 
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:orientation="vertical"
@@ -26,14 +25,13 @@
                 android:id="@+id/edit_text_module"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Module"
-                android:inputType="textCapWords" />
+                android:hint="Module" />
 
             <EditText
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/edit__text_revnotes"
-                android:hint="note"
+                android:hint="Note"
                 android:inputType="textCapWords" />
         </LinearLayout>
     </LinearLayout>

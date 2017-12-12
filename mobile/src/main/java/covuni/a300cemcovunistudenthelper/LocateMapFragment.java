@@ -42,7 +42,7 @@ public class LocateMapFragment extends FragmentActivity implements OnMapReadyCal
     }
 
 
-
+// here we add the the location to the map using a marker
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
@@ -53,7 +53,7 @@ public class LocateMapFragment extends FragmentActivity implements OnMapReadyCal
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         location = LocateMeActivity.location;
         latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        map.addMarker(new MarkerOptions().position(latLng).title("You started here"));
+        map.addMarker(new MarkerOptions().position(latLng).title("You are here"));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
 
