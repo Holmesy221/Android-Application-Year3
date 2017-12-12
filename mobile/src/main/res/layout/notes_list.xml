@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
+    android:layout_margin="8dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    android:background="@color/cardview_dark_background">
 
     <TextView
+        android:layout_margin="8dp"
         android:id="@+id/name"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="#2B3D4D"  />
+        android:textColor="@color/tw__composer_white"  />
 
     <TextView
+        android:layout_below="@+id/name"
+        android:layout_margin="8dp"
         android:id="@+id/summary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:textAppearance="?android:textAppearanceSmall"
-        android:textColor="#AEB6BD" />
+        android:textColor="@color/tw__composer_white" />
 
 
     <Button
+        android:layout_alignParentEnd="true"
         android:id="@+id/deleteNote"
-        android:drawableRight="@drawable/ic_cu_logo"
+        android:drawableRight="@drawable/ic_clearr"
         android:background="@null"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true" />
 
-</LinearLayout>
+</RelativeLayout>

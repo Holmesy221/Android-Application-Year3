@@ -17,12 +17,14 @@ public class PageAdapter extends FragmentPagerAdapter {
         this.context = context;
     }
 
+    // return number of pages
     @Override
     public int getCount(){
         return 3;
     }
 
     @Override
+    //returns fragment associated with the postition
 
     public Fragment getItem(int position){
         switch (position){
@@ -37,7 +39,7 @@ public class PageAdapter extends FragmentPagerAdapter {
         }
     }
 
-
+//returns String for title of each fragment
     @Override
     public CharSequence getPageTitle(int position){
 

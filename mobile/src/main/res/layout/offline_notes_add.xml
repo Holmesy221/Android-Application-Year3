@@ -13,14 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <!-- Label -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Overview"
-            android:textColor="@color/colorPrimaryDark" />
 
-        <!-- Input fields -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -28,7 +21,7 @@
             android:orientation="vertical"
             android:paddingLeft="4dp">
 
-            <!-- Name field -->
+
             <EditText
                 android:id="@+id/edit_text_module"
                 android:layout_width="match_parent"
@@ -36,7 +29,6 @@
                 android:hint="Module"
                 android:inputType="textCapWords" />
 
-            <!-- Breed field -->
             <EditText
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"

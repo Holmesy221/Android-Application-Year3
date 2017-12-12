@@ -17,13 +17,19 @@ public class AboutSections extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_sections);
 
+
+        // ViewPager layout
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
+        // specify adapter for correct fragment on swipes
         PageAdapter adapter = new PageAdapter(this, getSupportFragmentManager());
 
+        //set adapter
         viewPager.setAdapter(adapter);
 
+        //tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        //set tabLayout
         tabLayout.setupWithViewPager(viewPager);
 
 
