@@ -25,7 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class UniBuildingsFragment extends Fragment implements OnMapReadyCallback {
 
-    public static int REQUEST_LOCATION = 1;
+
 
 
 

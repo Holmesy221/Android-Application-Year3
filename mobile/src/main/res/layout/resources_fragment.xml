@@ -55,6 +55,7 @@
             android:text="For the Twitter timeline I used the Twitter dev doc."/>
 
         <TextView
+            android:textColor="@color/tw__composer_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
