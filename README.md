@@ -4,7 +4,8 @@ This is my repository for my Android project.
 
 This is a Student Companion APP which has the selected features [so far] :
 
-- Revision notes
+- Revision notes by using SQLite Database
+- Student Share for posts by multiple users by using Firebase Database
 - University Building locations
 - Local pub and club locations
 - Cov uni's offcial news twitter
